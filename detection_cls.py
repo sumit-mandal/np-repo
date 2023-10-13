@@ -10,8 +10,8 @@ class Ppe_Detection_1():
 
     def __init__(self):
    
-        self.weightfile =  '../yolov4-tiny.weights'
-        self.cfgfile =  '../yolov4-tiny.cfg'
+        self.weightfile =  '../vehicle_classification.weights'
+        self.cfgfile =  '../vehicle_classification.cfg'
         self.PpeNet = cv2.dnn.readNet(self.weightfile,self.cfgfile)
         self.classes = self.get_classes()
         layer_names = self.PpeNet.getLayerNames()
@@ -21,7 +21,7 @@ class Ppe_Detection_1():
     def get_classes(self):
         # self.classes = []
 
-        with open("../coco.names","r") as f:
+        with open("../vehicle_classification.names","r") as f:
             self.classes_val = [line.strip() for line in f.readlines()]
 
 
